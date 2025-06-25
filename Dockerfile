@@ -1,7 +1,7 @@
-# Use Python 3.10 base image
+# Use Python 3.10 slim image
 FROM python:3.10-slim
 
-# Set environment variables
+# Environment setup
 ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
 
@@ -28,15 +28,15 @@ RUN apt-get update && apt-get install -y \
     python3-dev \
     && rm -rf /var/lib/apt/lists/*
 
-# Copy project files
+# Copy all files to working directory
 COPY . /app/
 
 # Install Python dependencies
 RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
 
-# Expose the app port
+# Expose port
 EXPOSE 8000
 
-# Start the app using gunicorn
+# Start app using gunicorn
 CMD ["gunicorn", "app:app", "--bind", "0.0.0.0:8000"]
