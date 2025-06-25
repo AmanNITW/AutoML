@@ -8,8 +8,7 @@ matplotlib==3.8.4
 seaborn==0.13.2
 openpyxl==3.1.2
 
-# Core PyCaret (avoid full bundle)
 pycaret[full]==3.3.0
 
-# Optional (comment out for now if error persists)
+# Optional — only if needed for profiling
 # ydata-profiling==4.6.4
