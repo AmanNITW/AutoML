@@ -1,11 +1,13 @@
 services:
   - type: web
     name: flask-automl-app
-    env: python
+    env: docker
     plan: free
-    buildCommand: pip install --upgrade pip && pip install -r requirements.txt
-    startCommand: gunicorn app:app --bind 0.0.0.0:8000
+    region: oregon  # or change to your preferred region
+    dockerfilePath: ./Dockerfile
     envVars:
-      - key: PYTHON_VERSION
-        value: 3.10
-    autoDeploy: true
+      - key: PYTHONUNBUFFERED
+        value: '1'
+      - key: PYTHONDONTWRITEBYTECODE
+        value: '1'
+    startCommand: gunicorn app:app --bind 0.0.0.0:$PORT
