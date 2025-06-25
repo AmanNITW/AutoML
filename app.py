@@ -252,5 +252,5 @@ def predict_single_entry():
 
     return render_template("predict_single_entry.html", columns=feature_columns)
 
-if __name__ == '__main__':
-    app.run(debug=True)
+#if __name__ == '__main__':
+    #app.run(debug=True)
