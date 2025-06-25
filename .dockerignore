@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+*.pkl
+.git/
+uploads/
+static/plots/
+.env
