@@ -1,4 +1,4 @@
-# Use a base image with Python 3.10
+# Use Python 3.10 base image
 FROM python:3.10-slim
 
 # Set environment variables
@@ -38,5 +38,5 @@ RUN pip install -r requirements.txt
 # Expose the app port
 EXPOSE 8000
 
-# Command to run the app
+# Start the app using gunicorn
 CMD ["gunicorn", "app:app", "--bind", "0.0.0.0:8000"]
